@@ -1,11 +1,12 @@
 import  GlobalStyle  from './styles/global'
+import {Routes} from './routes'
 
 
 function App() {
   return (
     <>
       <GlobalStyle/>
-        <h1>oii</h1>
+      <Routes/>
       
       
     </>
