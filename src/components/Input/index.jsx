@@ -4,7 +4,7 @@ export const Input = ({label, icon: Icon, register, name,   error='', ...rest}) 
     return (
         <Container>
             {label} {!!error && <span> - {error}</span>}
-            <InputContainer>
+            <InputContainer isErrored={!!error}>
                 <input {...register(name)} {...rest}/>
                 {Icon && <Icon />}
             </InputContainer>

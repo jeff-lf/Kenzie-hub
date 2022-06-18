@@ -1,10 +1,15 @@
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 
 export const Container = styled.div`
     text-align: left;
     width: 80%;
     color: var(--grey-0);
     font-size: 10px;
+    
+  
+    span{
+        color: red;
+    }
 `
 
 export const InputContainer = styled.div`
@@ -17,6 +22,12 @@ export const InputContainer = styled.div`
     margin-top: 8px;
     align-items: center;
     
+    ${props => props.isErrored && css`
+        border-color: red;
+        svg{
+            color: red;
+        }
+    `}
 
     input{
         background: transparent;
