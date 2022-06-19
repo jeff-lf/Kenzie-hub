@@ -204,3 +204,96 @@ export const AdicionarContainer = styled.div`
     }
 
 `
+
+export const ModalAtualizar = styled.div`
+    width: 85%;
+    height: 50vh;
+    max-height: 342px;
+    max-width: 369px;
+    left: 40% - 369px;
+    top: 15%;
+    position: absolute;
+    margin-right: 5px;
+    background-color: #212529;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    display: ${(props) => props.showAtualizar ? 'inline' : 'none'};
+    
+    
+    
+    .headerCadastro{
+        border-radius: 4px 4px 0px 0px;
+        width: 100%;
+        height: 13.8%;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+        background-color: var(--grey-2);
+        
+        
+        button{
+            background: none;
+            border: none;
+            color: var(--grey-1);
+            margin-right: 10px;
+        }
+
+        h3{
+            margin-left: 10px;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+    }
+
+    form{
+        height: 100%;
+        max-height: 300px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content:space-evenly;
+        background-color: var(--gray-3);
+
+        .status{
+            width: 80%;
+            text-align: left;
+
+            label{
+            font-size: 10px;
+
+            }
+
+            select{
+            background: var(--grey-2);
+            height: 38px;
+            width: 100%;
+            display: flex;
+            border: 0.9772px solid #F8F9FA;
+            border-radius: 3.20867px;
+            margin-top: 8px;
+            align-items: center;
+            text-align: left;
+            color: #868E96;
+            }
+        }
+
+        .botoes{
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttonAtualizar{
+            width: 60%;
+        }
+
+        .buttonExcluir{
+            width: 30%;
+        }
+    }
+
+
+`
