@@ -5,10 +5,12 @@ import { useForm } from "react-hook-form"
 import {AiFillEye} from 'react-icons/ai'
 import {yupResolver}   from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useHistory } from "react-router-dom"
+import { Redirect, useHistory } from "react-router-dom"
+import { api } from "../../services/api"
+import { toast } from 'react-toastify'
 
 
-export const Login  = () => {
+export const Login  = ({authenticated, setAuthenticated}) => {
 
     const schema = yup.object().shape({
         email: yup.string().email('Email inválido').required('Campo obrigatório'),
@@ -27,13 +29,29 @@ export const Login  = () => {
     })
 
     const onSubmitFunction = (data) => {
-        console.log(data)
+        api
+        .post('/sessions', data)
+        .then((res) => {
+            const {token, user} = res.data
+
+            localStorage.setItem('@Kenziehub:token', JSON.stringify(token))
+            localStorage.setItem('@Kenziehub:user', JSON.stringify(user))
+
+            setAuthenticated(true)
+
+            return history.push('/home')
+        })
+        .catch((err) => toast.error('Ops, email ou senha invalido'))
     }
 
     const history = useHistory()
     
     const handleNavigation = (path) => {
         return history.push(path)
+    }
+
+    if(authenticated){
+        return <Redirect to='/home'/>
     }
 
     return (
