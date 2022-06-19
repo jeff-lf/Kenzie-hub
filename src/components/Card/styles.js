@@ -13,6 +13,8 @@ export const Container = styled.div`
     h3{
         color: ${(props) => props.show ||  props.showAtualizar === true ? '#868E96' : '#F8F9FA'};
         width: 50%;
+        font-size: 14px;
+        margin-left: 5px;
     }
 
     p{
@@ -20,6 +22,7 @@ export const Container = styled.div`
         width: 40%;
         margin-right: 20px;
         text-align: right;
+        font-size: 12px;
     }
 
 `
